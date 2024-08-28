@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Load the React library in production mode from a CDN -->
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+
+    <!-- Load the ReactDOM library in production mode from a CDN -->
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+    <!-- Load Babel standalone, which is used to compile JSX into JavaScript in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      // Define a variable 'text' with the value "Seize the day"
+      const text = "Seize the day";
+
+      // Define a condition that is set to 'true'
+      const condition = true;
+
+      // Define a React functional component 'Paragraph' that returns a <p> element with the 'text' content
+      function Paragraph() {
+        return <p>{text}</p>;
+      }
+
+      // Define another React functional component 'Paragraph2' that also returns a <p> element with the 'text' content
+      function Paragraph2() {
+        return <p>{text}</p>;
+      }
+
+      // Create a root element for rendering React components
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // Conditional statement to decide which component to render
+      if (condition) {
+        // If 'condition' is true, render the 'Paragraph' component
+        root.render(<Paragraph />);
+      } else {
+        // If 'condition' is false, render the 'Paragraph2' component
+        root.render(<Paragraph2 />);
+      }
+    </script>
+  </body>
+</html>
